@@ -1,0 +1,27 @@
+{
+  "name": "nodeblog",
+  "version": "1.0.0",
+  "description": "a web site blog ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suwu150/NodeBlog.git"
+  },
+  "author": "jkwu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/suwu150/NodeBlog/issues"
+  },
+  "homepage": "https://github.com/suwu150/NodeBlog#readme",
+  "devDependencies": {
+    "body-parser": "^1.17.2",
+    "cookies": "^0.7.0",
+    "express": "^4.15.3",
+    "markdown": "^0.5.0",
+    "mongoose": "^4.11.3",
+    "swig": "^1.4.2"
+  }
+}
