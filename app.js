@@ -5,6 +5,9 @@ var express = require('express');
 // 加载模板处理模块
 var swig = require('swig');
 
+//加载数据库模块
+var mongoose = require('mongoose');
+
 //创建应用
 var app = express();
 
@@ -35,17 +38,33 @@ swig.setDefaults({ cache: false});
 *  respose
 *  next : 函数
 * */
-app.get('/', function (req,res, next) {
-  // res.send('<span>Hello</span>');
 
-  /*
-  * 读取views目录下的指定文件,解析并返回给客户端
-  * 第一个参数: 表示模板的文件,相对于views目录  views/index.html
-  * 第二个参数: 传递给模板使用的数据
-  * */
-  res.render('index');
+// 根据不同的功能划分模块
+app.use('/admin', require('./routers/admin'));
+app.use('/api', require('./routers/api'));
+app.use('/', require('./routers/main'));
+
+
+// app.get('/', function (req,res, next) {
+//   // res.send('<span>Hello</span>');
+//
+//   /*
+//   * 读取views目录下的指定文件,解析并返回给客户端
+//   * 第一个参数: 表示模板的文件,相对于views目录  views/index.html
+//   * 第二个参数: 传递给模板使用的数据
+//   * */
+//   res.render('index');
+// });
+
+
+// 连接数据库
+mongoose.connect('mongodb://localhost:27017/nodeBlog', { useMongoClient: true }, function (err) {
+  if (err) {
+    console.log('数据库连接失败' + err);
+  } else {
+    console.log('数据库连接成功');
+    // 监听http请求
+    app.listen(8080);
+    console.log('服务器正常启动...,监听地址端口为: localhost:8080');
+  }
 });
-
-
-// 监听http请求
-app.listen(8080);
