@@ -8,6 +8,14 @@ var swig = require('swig');
 //加载数据库模块
 var mongoose = require('mongoose');
 
+//加载body-parser,用于处理[-post-]提交过来的数据
+var bodyParser = require('body-parser');
+
+
+//加载cookies模块
+var Cookies = require('cookies');
+
+var User = require('./models/User');
 //创建应用
 var app = express();
 
@@ -30,8 +38,37 @@ app.set('views', './views');
 //注册所使用的模板引擎,第一个参数必须是 view engine, 第二个参数和app.engine()方法中的第一个参数(模板引擎的名称)必须相同
 app.set('view engine', 'html');
 
+//设置bodyParser
+// parse application/x-www-form-urlencoded
+//添加这个属性之后,会自动在请求的request请求中添加body属性,这个属性就是对post中参数的封装
+app.use(bodyParser.urlencoded({ extended: true }));
+
 //在开发过程中需要去掉模板缓存
 swig.setDefaults({ cache: false});
+
+
+//解析登录信息cookies
+app.use(function (req, res, next) {
+  req.cookies = new Cookies(req, res);
+  req.userInfo = {};
+  if (req.cookies.get('userInfo')) {
+    try {
+      req.userInfo = JSON.parse(req.cookies.get('userInfo'));
+      User.findById(req.userInfo.id).then(function (userInfo) {
+        req.userInfo.isAdmin = Boolean(userInfo.isAdmin);
+        next();
+      })
+    }
+    catch(e) {
+      next();
+    }
+  } else {
+    next();
+  }
+
+});
+
+
 /*
 * 首页
 *  request
