@@ -24,7 +24,7 @@ NodeBlog is a website of blog
   ```
 
 ##### 3. 项目中目录结构
-`
+```
   |
   |--db                    :数据库存储路径
   |--models                :数据库模型
@@ -36,7 +36,7 @@ NodeBlog is a website of blog
   |--app.js                :入口文件,用于启动服务等
   |--package.json          : package.json
   |--README.md             : 项目说明
-`
+```
   
 ##### 3. 项目启动
 
