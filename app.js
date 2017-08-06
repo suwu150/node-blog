@@ -60,7 +60,7 @@ app.use( function(req, res, next) {
 
       //获取当前登录用户的类型，是否是管理员
       User.findById(req.userInfo._id).then(function(userInfo) {
-        req.userInfo.isAdmin = Boolean(userInfo.isAdmin);
+        req.userInfo.isAdmin = userInfo && userInfo.isAdmin ? Boolean(userInfo.isAdmin) : false;
         next();
       })
     }catch(e){
@@ -96,8 +96,8 @@ app.use('/', require('./routers/main'));
 //   * */
 //   res.render('index');
 // });
-
-
+// mongoose.Promise = require('bluebird');
+mongoose.Promise = global.Promise;
 // 连接数据库
 mongoose.connect('mongodb://localhost:27017/nodeBlog', { useMongoClient: true }, function (err) {
   if (err) {

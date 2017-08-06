@@ -45,6 +45,11 @@ NodeBlog is a website of blog
 node app.js
 
 ```
+启动成功之后在控制台上面就会有如下提示:
+```
+数据库连接成功
+服务器正常启动...,监听地址端口为: localhost:8080
+```
 启动之后,通过开始设置的端口进行访问:
 ```
 http://localhost:8080/
