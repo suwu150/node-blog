@@ -9,7 +9,8 @@ NodeBlog is a website of blog
     
    `mongod --dbpath=/home/jkwu/WebstormProjects/NodeBlog/db  --port=27017`
         
-       在上面命令中,使用指令dbpath指定了生成的数据库文件路径`/home/jkwu/WebstormProjects/NodeBlog/db`,      
+ 在上面命令中,使用指令dbpath指定了生成的数据库文件路径`/home/jkwu/WebstormProjects/NodeBlog/db`,
+值得注意的是,应该在启动mongodb之前,在项目中创建db文件夹       
 ##### 2. 项目中依赖文件的安装
       * body-parser: 解析post的请求数据
       * cookies: 读或者写cookies,用于存储临时数据
