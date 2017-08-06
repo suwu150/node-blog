@@ -8,6 +8,7 @@ NodeBlog is a website of blog
 在Linux系统下,进入到安装目录,只需在终端下输入如下命令:
     
    `mongod --dbpath=/home/jkwu/WebstormProjects/NodeBlog/db  --port=27017`
+        
        在上面命令中,使用指令dbpath指定了生成的数据库文件路径`/home/jkwu/WebstormProjects/NodeBlog/db`,      
 ##### 2. 项目中依赖文件的安装
       * body-parser: 解析post的请求数据
