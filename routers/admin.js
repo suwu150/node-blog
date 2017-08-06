@@ -148,7 +148,7 @@ router.post('/category/add', function(req, res) {
       res.render('admin/error', {
         userInfo: req.userInfo,
         message: '分类已经存在了'
-      })
+      });
       return Promise.reject();
     } else {
       //数据库中不存在该分类，可以保存
@@ -337,7 +337,7 @@ router.post('/content/add', function(req, res) {
     res.render('admin/error', {
       userInfo: req.userInfo,
       message: '内容分类不能为空'
-    })
+    });
     return;
   }
 
@@ -345,7 +345,7 @@ router.post('/content/add', function(req, res) {
     res.render('admin/error', {
       userInfo: req.userInfo,
       message: '内容标题不能为空'
-    })
+    });
     return;
   }
 
@@ -411,7 +411,7 @@ router.post('/content/edit', function(req, res) {
     res.render('admin/error', {
       userInfo: req.userInfo,
       message: '内容分类不能为空'
-    })
+    });
     return;
   }
 
@@ -419,7 +419,7 @@ router.post('/content/edit', function(req, res) {
     res.render('admin/error', {
       userInfo: req.userInfo,
       message: '内容标题不能为空'
-    })
+    });
     return;
   }
 

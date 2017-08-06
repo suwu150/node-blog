@@ -17,7 +17,7 @@ router.use(function (req, res, next) {
   data = {
     userInfo: req.userInfo,
     categories: []
-  }
+  };
 
   Category.find().then(function(categories) {
     data.categories = categories;
