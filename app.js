@@ -99,7 +99,7 @@ app.use('/', require('./routers/main'));
 // mongoose.Promise = require('bluebird');
 mongoose.Promise = global.Promise;
 // 连接数据库
-mongoose.connect('mongodb://localhost:27018/nodeBlog', { useMongoClient: true }, function (err) {
+mongoose.connect('mongodb://localhost:27020/nodeBlog', { useMongoClient: true }, function (err) {
   if (err) {
     console.log('数据库连接失败' + err);
   } else {
