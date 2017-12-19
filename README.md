@@ -1,5 +1,5 @@
-# NodeBlog
-NodeBlog is a website of blog
+# node-blog
+node-blog is a website of blog
 
 ##### 1.mongodb数据库
 在使用mongodb数据库的时候,需要在本地进行安装,首先你需要在官方网站进行下载,如下面链接
@@ -7,9 +7,9 @@ NodeBlog is a website of blog
 根据自己的电脑,进行对应版本的下载安装,在安装完之后,我们需要进行开启,其中默认端口为27017     
 在Linux系统下,进入到安装目录,只需在终端下输入如下命令:
     
-   `mongod --dbpath=/home/WebstormProjects/NodeBlog/db  --port=27017`
+   `mongod --dbpath=/home/jkwu/WebStormProject/node-blog/db  --port=27017`
         
- 在上面命令中,使用指令dbpath指定了生成的数据库文件路径`/home/WebstormProjects/NodeBlog/db`,
+ 在上面命令中,使用指令dbpath指定了生成的数据库文件路径`/home/WebstormProjects/node-blog/db`,
 值得注意的是,应该在启动mongodb之前,在项目中创建db文件夹       
 ##### 2. 项目中依赖文件的安装
       * body-parser: 解析post的请求数据
