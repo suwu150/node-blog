@@ -88,6 +88,7 @@ router.post('/user/register', function(req, res, next) {
 router.post('/user/login', function(req, res) {
   var username = req.body.username;
   var password = req.body.password;
+  console.log(username);
 
   if ( username == '' || password == '' ) {
     responseData.code = 1;
